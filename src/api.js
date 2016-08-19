@@ -41,7 +41,11 @@ DataCenter.prototype = {
       if (err) {
         throw (err);
       }
-      res.redirect('pages/api');
+      res.send({
+            code: 200, 
+            data: item,
+            err: err
+          });
     });
   },
 
@@ -63,9 +67,12 @@ DataCenter.prototype = {
     }, function goHome(err) {
       if (err) {
         throw err;
-      } else {
-        res.redirect('pages/api');
-      }
+      } 
+       res.send({
+            code: 200, 
+            data: ids,
+            err: err
+       });
     });
   }
 };
